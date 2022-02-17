@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+       <div class="video_box">
+            <h4><%= video.title%></p>
+            <p><%= video.description%></p>
+            <p><%= video.meta.views%></p>
+            <small><p><%= video.date%></p></small>
+            <%for(let tag of video.hashtags) { %>
+                <small><span><%= tag %></span></small>
+            <% } %>
+       </div>
+       <a href="/videos/<%= video.id%>/edit">비디오 수정</a>
+       <a href="/videos/<%= video.id%>/delete">비디오 삭제</a>
+    </div>
+</body>
+</html>

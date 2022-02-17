@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle%></title>
+    <style>
+        input {padding: 0.5rem; margin-top: 1rem;}
+        p,h4 {
+            margin: 0;
+        }
+       .video {
+           margin-top: 1rem;
+           padding: 1rem;
+           border: 1px solid lightgray;
+       }
+       a {
+           text-decoration: none;
+           color: #222;
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/upload">Video Upload</a>
+        <form method="get" action="/search">
+            <input type="text" placeholder="title" name="keyword" id="keyword" value="<%= keyword %>">
+            <input type="submit" value="검색">
+        </form>
+        <%for(let i = 0; i < videos.length; i++) {%>
+            <div class="video" id="<%= videos[i].id %>">
+                <h4><a href="/videos/<%= videos[i].id %>"><%= videos[i].title%></a></h4>
+                <p><%= videos[i].description %></p>
+                <small><%= videos[i].date %></small>
+            </div>
+        <%}%>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+</body>
+</html>

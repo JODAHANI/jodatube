@@ -1,0 +1,14 @@
+extends base
+
+
+block content
+    if !result
+        span 아이디와 비밀번호 중에 맞지 않은것이 있습니다.
+    form(method="POST")
+        input(placeholder="Email", name="email", type="text", required)
+        input(placeholder="Password", name="pw", type="password", required)
+        input(type="submit", value="Login")
+        include partials/social-login
+    div.auth-switch
+        span Don't have an account? 
+        a(href="/join") Create one now &rarr;

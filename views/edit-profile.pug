@@ -1,0 +1,12 @@
+extends base
+
+block content 
+    img(src=`/${loggedInUser.avatarUrl}` width="100" height="100" style="border-radius: 5px")
+    form(method="POST", enctype="multipart/form-data").edit-profile__form
+        label(for="avatar") Avatar
+        input(type="file" id="avatar" name="avatar" class="submit" accept="image/*")
+        input(type="text" name="userName" placeholder="userName" required, value=loggedInUser.userName)
+        input(class="submit" type="submit" value="Profile Update")
+        if !loggedInUser.socialOnly
+            div.edit-profile__password
+                a(href="change-password") Change Password &rarr; 

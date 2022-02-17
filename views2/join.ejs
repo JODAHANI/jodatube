@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{width: 90%; margin: auto;}
+        body {margin: 0; padding: 0;}
+        form{ width: 80%; padding: 1rem; border: 1px solid lightgray; margin: auto;}
+        input{display: block; margin: 0.5rem 0; padding: 0.5rem;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <form method="post">
+            <% if(err) {%>
+                <small><%= err %></small>
+            <% } %>
+            <input type="text" placeholder="Name" name="name" required>
+            <input type="text" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Pw" name="pw" required>
+            <input type="password" placeholder="Pw Check" name="pw2" required>
+            <input type="text" placeholder="User Name" name="userName" required>
+            <input type="submit" value="JOIN">
+        </form>
+        <hr>
+        <div class="">
+            <span>이미 회원가입을 하셨나요?</span>
+            <a href="/login">로그인하기</a>
+        </div>
+    </div>
+</body>
+</html>

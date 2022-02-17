@@ -1,0 +1,17 @@
+extends base
+
+block content
+    div#videoContainer(data-video-id=video._id)
+        video(src=`/${video.fileUrl}` controls style="width:100%;")
+    div.box
+        span#ownerImg(style =`background-image: url(/${video.owner.avatarUrl = video.owner.avatarUrl.replace(/[\\]/g, "/")});`)
+            a(href=`/users/${video.owner._id}`) #{video.owner.userName}
+        p=video.description
+        small #{`${video.date.getFullYear()}.${video.date.getMonth()+1 < 10 ? `0${video.date.getMonth()+1}` : `${video.date.getMonth()+1}`}.${video.date.getDate() < 10 ? `0${video.date.getDate()}` : `${video.date.getDate()}`}`}
+        p #{video.meta.views}회
+    if String(loggedInUser._id) == String(video.owner._id)
+        div.box
+            a(href=`${video.id}/edit`) Edit Video &rarr;
+            a(href=`${video.id}/delete`) Delete Video &rarr;
+block scripts 
+    script(src='/static/js/videoPlayer.js')

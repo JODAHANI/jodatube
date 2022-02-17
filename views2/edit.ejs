@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        input { display:  block; margin-top: 0.5rem; padding: 1rem;}
+    </style>
+    <title>Edit</title>
+</head>
+<body>
+    <form method="POST">
+        <input name="title" placeholder="Video Title" value="<%= video.title %>" required>
+        <input placeholder="Description" type="text" name="description" minlength="1n0" value="<%= video.description %>" required>
+        <input placeholder="Hashtags, separated by comma." name="hashtags"  required type="text" value="<%=video.hashtags %>">
+        <input value="Save"type="submit" >  
+    </form>
+</body>
+</html>
